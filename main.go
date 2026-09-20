@@ -1,4 +1,4 @@
-// Jevgenijs Kovaļonoks 251RTU125
+// Jevgenijs Kovaļonoks 251RDB125
 
 package main
 
@@ -9,9 +9,10 @@ import (
 )
 
 func main() {
-
 	var n int
+
 	if len(os.Args) > 1 {
+
 		for _, arg := range os.Args[1:] {
 			factor := 2
 			n, err := strconv.Atoi(arg)
@@ -32,20 +33,16 @@ func main() {
 			fmt.Println()
 		}
 	} else {
-		_, err := fmt.Scan(&n)
-		factor := 2
 		fmt.Print("Input number: ")
+		_, err := fmt.Scan(&n)
 
-		if err != nil {
+		if err != nil || n < 2 {
 			fmt.Println("input-output error")
 			return
 		}
-		if n < 2 {
-			fmt.Println("input-output error")
-			return
-		}
-		fmt.Printf("%d ", n)
-		fmt.Println()
+
+		factor := 2
+
 		fmt.Printf("%d: ", n)
 		for factor <= n {
 			if n%factor == 0 {
